@@ -79,11 +79,6 @@ spec:
                         } // script
                     } // steps
                 } // stage
-                
-                stage('お試し') {
-                    sh 'お試し'
-                } // stage                
-                
                 stage('deploy') {
                     steps {
                         script {
@@ -112,6 +107,11 @@ spec:
                         } // script
                     } // steps
                 } // stage
+                
+                stage('追加手順') {
+                    sh '追加した手順を実施します。'
+                } // stage
+                
             } // stages
         } // pipeline
       type: JenkinsPipeline
