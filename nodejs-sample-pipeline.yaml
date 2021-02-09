@@ -68,6 +68,7 @@ spec:
                 stage('build') {
                     steps {
                         script {
+                            input "buildを始めてもよいですか?"
                             openshift.withCluster() {
                                 openshift.withProject() {
                                     def builds = openshift.selector("bc", templateName).related('builds')
@@ -107,11 +108,6 @@ spec:
                         } // script
                     } // steps
                 } // stage
-                
-                stage('追加手順') {
-                    sh '追加した手順を実施します。'
-                } // stage
-                
             } // stages
         } // pipeline
       type: JenkinsPipeline
