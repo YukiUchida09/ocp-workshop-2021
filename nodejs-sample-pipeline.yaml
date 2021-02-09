@@ -79,6 +79,11 @@ spec:
                         } // script
                     } // steps
                 } // stage
+                
+                stage('お試し') {
+                    sh 'お試し'
+                } // stage                
+                
                 stage('deploy') {
                     steps {
                         script {
