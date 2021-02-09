@@ -66,9 +66,9 @@ spec:
                     } // steps
                 } // stage
                 stage('build') {
+                    input "buildを始めてもよいですか?"
                     steps {
                         script {
-                            input "buildを始めてもよいですか?"
                             openshift.withCluster() {
                                 openshift.withProject() {
                                     def builds = openshift.selector("bc", templateName).related('builds')
