@@ -66,8 +66,10 @@ spec:
                     } // steps
                 } // stage
                 stage('build') {
-                    input 'buildを始めてもよいですか?'
                     steps {
+                        timeout(time: 1, unit: 'HOURS') {
+                            input 'buildを始めてもよいですか?'
+                        }
                         script {
                             openshift.withCluster() {
                                 openshift.withProject() {
